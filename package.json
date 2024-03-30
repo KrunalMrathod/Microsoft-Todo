@@ -1,0 +1,9 @@
+{
+  "name": "Todo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/KrunalMrathod/Todo.git",
+  "author": "KrunalMrathod <krunalrathod564@gmail.com>",
+  "license": "MIT",
+  "private": true
+}
