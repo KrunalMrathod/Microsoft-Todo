@@ -1,5 +1,5 @@
 import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
-
+import { IsNotEmpty } from "class-validator";
 
 @Entity()
 export class Todo {
@@ -8,6 +8,7 @@ export class Todo {
     id: number
 
     @Column()
+    @IsNotEmpty()
     todo: string;
 
     @Column({default:false})
