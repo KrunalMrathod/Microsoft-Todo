@@ -16,4 +16,5 @@ export class Todo {
 
     @CreateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
     createdAt: Date;
+
 }

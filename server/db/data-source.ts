@@ -11,6 +11,7 @@ export const dataSourceOptions: DataSourceOptions = {
     password : 'password',
     database : 'todos',
     entities: [Todo,User],
+    migrations : ['dist/db/migrations/*.js'],
     synchronize: true
 };
 
