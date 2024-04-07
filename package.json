@@ -5,5 +5,13 @@
   "repository": "https://github.com/KrunalMrathod/Todo.git",
   "author": "KrunalMrathod <krunalrathod564@gmail.com>",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "workspaces": [
+    "client",
+    "Server"
+  ],
+  "scripts": {
+    "client:dev:start": "yarn workspace client dev",
+    "server:dev:start" : "yarn workspace server  start --watch"
+  }
 }
