@@ -39,8 +39,10 @@ export class User {
   @IsValidPassword()
   password: string;
 
+  @Column()
+  @IsNotEmpty()
+  userName: string;
+
   @CreateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   createdAt: Date;
 }
-
-
