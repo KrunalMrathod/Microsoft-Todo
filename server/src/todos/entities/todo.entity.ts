@@ -9,10 +9,17 @@ export class Todo {
 
     @Column()
     @IsNotEmpty()
-    todo: string;
+    todoTitle: string;
+
+    @Column()
+    @IsNotEmpty()
+    description: string;
 
     @Column({default:false})
     completed: boolean;
+
+    @Column()
+    userId : number;
 
     @CreateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
     createdAt: Date;

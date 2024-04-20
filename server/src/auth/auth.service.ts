@@ -10,7 +10,7 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
-  async signIn(userName: string, pass: string): Promise<{ access_token: string }> {
+  async signIn(userName: string, pass: string): Promise<{ user:any; access_token: string }> {
     try {
       const user = await this.userService.findOneByUserName(userName);
       if (!user) {
@@ -23,11 +23,15 @@ export class AuthService {
       if (!isMatch) {
         throw new UnauthorizedException('Invalid password');
       }
+
+      const  {password,createdAt,...newUser} = user;
   
       const payload = { sub: user.id, userName: user.userName };
   
       return {
+        user: newUser ,
         access_token: await this.jwtService.signAsync(payload),
+        
       };
     } catch (error) {
       throw new UnauthorizedException('Invalid credentials');
