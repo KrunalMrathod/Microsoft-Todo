@@ -9,6 +9,7 @@ import {
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { User } from './entities/user.entity';
+import { UpdateUserDto } from './dto/update-user.dto';
 
 @Controller('users')
 export class UsersController {
@@ -30,7 +31,7 @@ export class UsersController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() user: User): Promise<User> {
+  update(@Param('id') id: string, @Body() user: UpdateUserDto): Promise<User> {
     return this.usersService.updateUser(+id, user);
   }
 

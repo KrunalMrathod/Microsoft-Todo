@@ -6,6 +6,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from './entities/user.entity';
 import * as bcrypt from 'bcrypt';
+import { UpdateUserDto } from './dto/update-user.dto';
 
 @Injectable()
 export class UsersService {
@@ -47,7 +48,7 @@ export class UsersService {
     return this.userReposetory.findOneBy({ id });
   }
 
-  async updateUser(id: number, user: User): Promise<User> {
+  async updateUser(id: number, user: UpdateUserDto): Promise<User> {
     await this.userReposetory.update(id, user);
     return this.findOneUser(id);
   }
