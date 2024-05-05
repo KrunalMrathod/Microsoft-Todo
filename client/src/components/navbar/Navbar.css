@@ -1,0 +1,207 @@
+.NavBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+  background-color: #2564cf;
+}
+.NavBar svg {
+  color: whitesmoke;
+}
+.LeftNav {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  width: 150px;
+}
+.LeftNav div {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: whitesmoke;
+}
+.Grid {
+  cursor: pointer;
+}
+.Grid svg {
+  font-size: 25px;
+  z-index: 5;
+  color: whitesmoke;
+}
+
+.Grid:hover {
+  background-color: #274374;
+}
+.Grid.active {
+  background-color: rgb(224, 224, 224);
+}
+
+.Grid.active.Grid svg {
+  color: black;
+}
+.title {
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.title:hover {
+  text-decoration: underline;
+  text-decoration-color: whitesmoke;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 2px;
+}
+
+.MiddleNav {
+  border-radius: 5px;
+  width: 25%;
+  height: 28px;
+  outline: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.MiddleNav svg {
+  border-radius: 4px 0px 0px 4px;
+  width: 10%;
+  height: 100%;
+  background-color: whitesmoke;
+  color: #2564cf;
+}
+.MiddleNav input {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+  border-radius: 0px 4px 4px 0px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+}
+.MiddleNav:hover {
+  width: 25.5%;
+  height: 29px;
+}
+.RightNav {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.RightIcons {
+  margin: 0px 5px;
+  height: 100%;
+  width: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.RightIcons svg {
+  font-size: 25px;
+  font-weight: 600;
+}
+.RightIcons:hover {
+  background-color: #274374;
+}
+
+.GridMenu {
+  position: absolute;
+  top: calc(5% + 9px);
+  left: 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  width: 500px !important;
+  height: 500px !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.GridMenu .GridSearch {
+  height: 10%;
+  width: 100%;
+}
+
+.GridMenu .GridSearch svg {
+  color: #2564cf;
+  position: absolute;
+  font-size: 20px;
+  left: 30px;
+}
+.GridMenu .GridSearch input {
+  padding: 2px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(235, 228, 228);
+  width: 90%;
+  height: 25px;
+  outline: none;
+}
+
+.GridMenu .GridIcons {
+  width: 100%;
+  height: 60%;
+  margin: 15px 0px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-items: center;
+}
+
+.GridMenu .GridIcons .GridI {
+  width: 70%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  color: black;
+  cursor: pointer;
+}
+.GridMenu .GridIcons .GridI:hover {
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  border-radius: 5px;
+}
+.GridMenu .GridIcons .GridI img {
+  width: 35px;
+}
+.GridMenu .GridIcons .GridI span {
+  font-size: 10px;
+  margin-top: 5px;
+}
+
+.GridOptions {
+  border-top: 1px solid black;
+  width: 100% !important;
+  height: 100px !important;
+  padding: 5px 0px;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+.Grido {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  margin: 10px 5px;
+
+ 
+}
+.Grido:hover{
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+  border-radius: 5px;
+  background-color: rgb(181, 169, 154,0.4);
+}
+.Grido img {
+  /* border: 1px solid red; */
+  width: 100%;
+  height: 40%;
+}
+.Grido span {
+  color: black;
+  font-size: 13px;
+  margin: 10px 0px;
+  font-weight: 600;
+}

@@ -14,9 +14,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/uuid": "^9.0.8",
     "copy-webpack-plugin": "^12.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^5.2.0",
+    "uuid": "^9.0.1",
     "webpack-bundle-analyzer": "^4.10.2"
   },
   "devDependencies": {

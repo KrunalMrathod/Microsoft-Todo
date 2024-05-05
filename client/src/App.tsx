@@ -1,9 +1,10 @@
+import Navbar from "./components/navbar/Navbar";
 import  "./styles.css";
 
 export const App = () => {
     return (
         <>
-            <h1>HelloS</h1>
+           <Navbar/>
         </>
     )
 }
