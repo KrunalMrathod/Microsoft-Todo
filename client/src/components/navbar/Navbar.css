@@ -160,7 +160,9 @@
   cursor: pointer;
 }
 .GridMenu .GridIcons .GridI:hover {
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  box-shadow:
+    rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   border-radius: 5px;
 }
 .GridMenu .GridIcons .GridI img {
@@ -186,16 +188,13 @@
   display: flex;
   flex-direction: column;
   margin: 10px 5px;
-
- 
 }
-.Grido:hover{
+.Grido:hover {
   box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
   border-radius: 5px;
-  background-color: rgb(181, 169, 154,0.4);
+  background-color: rgb(181, 169, 154, 0.4);
 }
 .Grido img {
-  /* border: 1px solid red; */
   width: 100%;
   height: 40%;
 }
@@ -204,4 +203,75 @@
   font-size: 13px;
   margin: 10px 0px;
   font-weight: 600;
+}
+
+/* Medai quary for mobile devices */
+
+@media screen and (max-device-width: 640px) {
+  .LeftNav {
+    width: 35%;
+  }
+
+  .title {
+    font-size: 16px;
+    text-decoration: none !important;
+  }
+
+  .MiddleNav {
+    border-radius: 5px;
+    width: 40%;
+    height: 28px;
+  }
+  .MiddleNav input {
+    width: 100%;
+    height: 100%;
+  }
+  .MiddleNav svg {
+    width: 20%;
+  }
+  .MiddleNav:hover {
+    width: 40%;
+    height: 28px;
+  }
+
+  .RightIcons {
+    margin: 0px 5px;
+    width: 30%;
+  }
+  .RightIcons svg {
+    font-size: 15px;
+  }
+
+  .RightIcons:hover {
+    background-color: inherit !important ;
+  }
+  .GridMenu {
+    top: calc(40px + 9px);
+    width: 80% !important;
+    height: 350px !important;
+  }
+  .GridMenu .GridIcons .GridI {
+    width: 100%;
+    height: 70%;
+  }
+  .GridMenu .GridIcons .GridI:hover {
+    box-shadow: none !important;
+  }
+  .GridMenu .GridIcons .GridI img {
+    width: 30px;
+  }
+  .GridMenu .GridIcons .GridI span {
+    font-size: 8px;
+  }
+  .Grido:hover {
+    box-shadow: none !important;
+    background-color: transparent !important;
+  }
+  .Grido img {
+    width: 60%;
+    height: 40%;
+  }
+  .Grido span {
+    font-size: 7px;
+  }
 }

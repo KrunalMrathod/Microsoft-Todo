@@ -58,7 +58,7 @@ const Navbar: React.FC = () => {
           <div className="GridMenu" ref={gridRef}>
             <div className="GridSearch">
               <IoIosSearch />
-              <input type="search" value="" />
+              <input type="search"/>
             </div>
             <div className="GridIcons">
               {GridImg &&
