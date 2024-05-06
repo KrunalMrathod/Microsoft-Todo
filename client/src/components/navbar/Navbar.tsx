@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
 
   return (
     <div className="NavBar">
-      <div className="LeftNav">
+      <div className="LeftNav"  ref={gridRef}>
         <div 
           className={`Grid ${isGridActive ? "active" : ""}`}
           onClick={toggleGridMenu}
@@ -55,7 +55,7 @@ const Navbar: React.FC = () => {
           <CgMenuGridO />
         </div>
         {showGridMenu && (
-          <div className="GridMenu" ref={gridRef}>
+          <div className="GridMenu">
             <div className="GridSearch">
               <IoIosSearch />
               <input type="search"/>
