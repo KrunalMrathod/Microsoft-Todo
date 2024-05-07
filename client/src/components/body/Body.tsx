@@ -5,6 +5,7 @@ import { BsFillGridFill } from "react-icons/bs";
 import { RiBarChartHorizontalLine } from "react-icons/ri";
 import { BsArrowDownUp } from "react-icons/bs";
 import { CgToolbarLeft } from "react-icons/cg";
+import AddTodo from "../addTodo/AddTodo";
 const Body: React.FC = () => {
   const [activeMenu, setActiveMenu] = useState("list");
 
@@ -44,6 +45,9 @@ const Body: React.FC = () => {
           </div>
         </div>
       </div>
+
+      <div className="vr"></div>
+      <AddTodo />
     </div>
   );
 };

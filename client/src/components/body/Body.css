@@ -28,6 +28,7 @@
 }
 .Left div svg {
   margin: 0px 5px;
+  font-size: 20px;
 }
 .Right {
   display: flex;
@@ -146,3 +147,10 @@
   }
 }
 
+
+.vr{
+  background-color: #d6c8c8;
+  height: 2px;
+  width: 95%;
+  margin: 5px auto;
+}
