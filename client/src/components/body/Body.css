@@ -1,0 +1,148 @@
+/* .Body{
+    border: 1px solid red;
+} */
+.TopMenus {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+.Left {
+  display: flex;
+  height: 100%;
+  width: 30%;
+  justify-content: center;
+  align-items: center;
+}
+.Left div {
+  height: 100%;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  cursor: pointer;
+  margin: 0px 20px;
+  font-size: 19px;
+  color: #a19f9d;
+}
+.Left div svg {
+  margin: 0px 5px;
+}
+.Right {
+  display: flex;
+  height: 100%;
+  width: 30%;
+  justify-content: center;
+}
+.Right div {
+  height: 100%;
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  cursor: pointer;
+  margin: 0px 20px;
+  font-size: 17px;
+  color: #a19f9d;
+}
+
+.Right div svg {
+  margin: 0px 5px;
+}
+
+.TopOptionActive {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+  text-decoration-color: #6b6a6a;
+}
+
+.TaskMenu > span {
+  color: #3b3939;
+  font-weight: 600;
+  font-size: 25px;
+}
+
+/* Medai quary for mobile devices */
+
+@media screen and (max-device-width: 640px) {
+  .TopMenus {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10px;
+  }
+  .Left {
+    width: 30%;
+  }
+  .Left div {
+    width: 100%;
+  }
+  .Left div:nth-child(2),
+  .Left div:nth-child(3) {
+    display: none;
+  }
+  .Left div svg {
+    margin: 0px 5px;
+  }
+
+  .TaskMenu > span {
+    color: #3b3939;
+    font-weight: 500;
+    font-size: 18px;
+  }
+
+  .Right {
+    width: 50%;
+  }
+  .Right div {
+    height: 100%;
+    width: 50%;
+    padding: 0px;
+    margin: 0px 0px;
+    font-size: 15px;
+  }
+}
+
+/* Media for Tablet */
+
+@media screen and (min-device-width: 641px) and (max-device-width: 1024px) {
+  .TopMenus {
+    justify-content: space-between;
+    padding: 10px 0px;
+  }
+  .Left {
+    width: 50%;
+  }
+  .Left div {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .Left div:nth-child(2),
+  .Left div:nth-child(3) {
+    display: flex;
+  }
+  .Left div svg {
+    margin: 0px 5px;
+  }
+
+  .TaskMenu > span {
+    color: #3b3939;
+    font-weight: 500;
+    font-size: 18px;
+  }
+
+  .Right {
+    width: 30%;
+  }
+  .Right div {
+    height: 100%;
+    width: 50%;
+    padding: 0px;
+    margin: 0px 0px;
+    font-size: 15px;
+  }
+}
+

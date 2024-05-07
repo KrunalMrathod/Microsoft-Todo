@@ -119,6 +119,8 @@
   height: 500px !important;
   display: flex;
   flex-direction: column;
+  z-index: 100;
+  background-color: whitesmoke;
 }
 
 .GridMenu .GridSearch {
@@ -361,11 +363,6 @@
     display: flex;
     flex-direction: column;
     margin: 10px 0px;
-  }
-  .Grido:hover {
-    box-shadow: unset !important;
-    border-radius: 5px;
-    background-color: unset !important;
   }
   .Grido img {
     width: 100%;
