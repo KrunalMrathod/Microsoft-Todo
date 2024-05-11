@@ -6,6 +6,8 @@ import { RiBarChartHorizontalLine } from "react-icons/ri";
 import { BsArrowDownUp } from "react-icons/bs";
 import { CgToolbarLeft } from "react-icons/cg";
 import AddTodo from "../addTodo/AddTodo";
+import TodoContainer from "../todoContainer/TodoContainer";
+
 const Body: React.FC = () => {
   const [activeMenu, setActiveMenu] = useState("list");
 
@@ -48,6 +50,7 @@ const Body: React.FC = () => {
 
       <div className="vr"></div>
       <AddTodo />
+      <TodoContainer/>
     </div>
   );
 };
