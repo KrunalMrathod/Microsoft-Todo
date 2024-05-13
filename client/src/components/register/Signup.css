@@ -14,7 +14,6 @@
 }
 
 .SignHead {
-  /* border: 1px solid red; */
   position: absolute;
   top: 5px;
   color: #222;
@@ -22,7 +21,6 @@
   font-size: 20px;
 }
 .SignUpForm {
-  /* border: 1px solid red; */
   margin: 30px 0px;
 }
 .SignUpInput {
