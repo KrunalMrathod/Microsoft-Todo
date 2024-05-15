@@ -7,6 +7,7 @@ import { BsArrowDownUp } from "react-icons/bs";
 import { CgToolbarLeft } from "react-icons/cg";
 import AddTodo from "../addTodo/AddTodo";
 import TodoContainer from "../todoContainer/TodoContainer";
+import Navbar from "../navbar/Navbar";
 
 const Body: React.FC = () => {
   const [activeMenu, setActiveMenu] = useState("list");

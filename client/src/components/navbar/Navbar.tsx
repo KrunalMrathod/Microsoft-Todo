@@ -8,6 +8,7 @@ import { TbSpeakerphone } from "react-icons/tb";
 import { FaRegUserCircle } from "react-icons/fa";
 import { GridMenuImgs } from "../../img/imges";
 import { GridOptions } from "../../img/imges";
+import { Link } from "react-router-dom";
 
 interface Item {
   id: number;
@@ -42,13 +43,13 @@ const Navbar: React.FC = () => {
 
   const toggleGridMenu = () => {
     setShowGridMenu(!showGridMenu);
-    setGridActive(!showGridMenu); 
+    setGridActive(!showGridMenu);
   };
 
   return (
     <div className="NavBar">
-      <div className="LeftNav"  ref={gridRef}>
-        <div 
+      <div className="LeftNav" ref={gridRef}>
+        <div
           className={`Grid ${isGridActive ? "active" : ""}`}
           onClick={toggleGridMenu}
         >
@@ -58,13 +59,13 @@ const Navbar: React.FC = () => {
           <div className="GridMenu">
             <div className="GridSearch">
               <IoIosSearch />
-              <input type="search"/>
+              <input type="search" />
             </div>
             <div className="GridIcons">
               {GridImg &&
                 GridImg.map((item) => {
                   return (
-                    <div className="GridI" key={item.id} >
+                    <div className="GridI" key={item.id}>
                       <img src={item.img} alt="" />
                       <span> {item.title} </span>
                     </div>
@@ -86,7 +87,8 @@ const Navbar: React.FC = () => {
         )}
 
         <div className="title">
-          <span>To Do</span>
+            <span>To Do</span>
+         
         </div>
       </div>
       <div className="MiddleNav">
@@ -104,7 +106,10 @@ const Navbar: React.FC = () => {
           <TbSpeakerphone />
         </div>
         <div className="RightIcons">
+          <Link to={"/signIn"}>
           <FaRegUserCircle />
+          </Link>
+         
         </div>
       </div>
     </div>

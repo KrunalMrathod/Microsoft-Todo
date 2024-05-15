@@ -46,6 +46,10 @@
   font-weight: 500;
   cursor: pointer;
 }
+.title a {
+  text-decoration: none;
+  color: whitesmoke;
+}
 .title:hover {
   text-decoration: underline;
   text-decoration-color: whitesmoke;
