@@ -45,4 +45,7 @@ module.exports = {
       patterns: [{ from: "source", to: "dest", noErrorOnMissing: true }],
     }),
   ],
+  devServer: {
+    historyApiFallback: true,
+  },
 };
