@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./SignIn.css";
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
@@ -6,31 +6,40 @@ import { FaGooglePlusG } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
 import axios from "axios";
-const SignIn: React.FC = () => {
+import { Link, useNavigate } from "react-router-dom";
+interface SignInProps {
+  setIsLoggedIn: (value: boolean) => void;
+  isLoggedIn: boolean;
+}
+
+const SignIn: React.FC<SignInProps> = ({ setIsLoggedIn, isLoggedIn }) => {
   const [password, setPassword] = useState("");
   const [userName, setUserName] = useState("");
-
-
-
-
+  const navigate = useNavigate();
   const handleRegister = async () => {
     try {
       const response = await axios.post("http://localhost:3000/auth/login", {
         password,
         userName,
       });
-      alert("login successful!");
-      localStorage.setItem("access_token",JSON.stringify(response.data.access_token))
-      setPassword("");
-      setUserName("");
+      alert("Login successful!");
+      localStorage.setItem("access_token", JSON.stringify(response.data.access_token));
+      setIsLoggedIn(true);
+      navigate("/")
     } catch (error) {
       const errorMessage = (error as any).response?.data?.message || "Unknown error occurred";
-      alert(`Registration failed: ${errorMessage}`);
+      alert(`Login failed: ${errorMessage}`);
     }
   };
 
+useEffect(()=>{
+  if(isLoggedIn){
+    navigate("/")
+  }
+},[isLoggedIn])
 
   return (
+   
     <div className="SignIn">
       <div className="SignInLeft">
         <div className="LeftImg">
@@ -40,7 +49,9 @@ const SignIn: React.FC = () => {
           />
         </div>
         <div className="SignInRedirect">
-          <span> Create an account</span>
+          <Link to="/signUp">
+            <span> Create an account</span>
+          </Link>
         </div>
       </div>
       <div className="SignInRight">

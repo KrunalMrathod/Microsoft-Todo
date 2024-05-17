@@ -6,12 +6,15 @@ import { MdEmail } from "react-icons/md";
 import { FaPen } from "react-icons/fa";
 import { useState } from "react";
 import axios from "axios";
+import { Link,useNavigate } from "react-router-dom";
 
 const SignUp: React.FC = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [userName, setUserName] = useState("");
+  const navigate = useNavigate();
+  
 
   const handleRegister = async () => {
     try {
@@ -26,6 +29,7 @@ const SignUp: React.FC = () => {
       setEmail("");
       setPassword("");
       setUserName("");
+      navigate("/signIn");
     } catch (error) {
       const errorMessage = (error as any).response?.data?.message || "Unknown error occurred";
       alert(`Registration failed: ${errorMessage}`);
@@ -88,7 +92,9 @@ const SignUp: React.FC = () => {
           />
         </div>
         <div className="SignUpRedirect">
-          <span>i am already member</span>
+          <Link to="/signIn">
+            <span>i am already member</span>
+          </Link>
         </div>
       </div>
     </div>
