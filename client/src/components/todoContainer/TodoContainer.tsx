@@ -16,7 +16,7 @@ const TodoContainer: React.FC = () => {
     const fetchData = async () => {
       try {
         const token =
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJOYW1lIjoiRmlyc3QiLCJpYXQiOjE3MTM1OTUxNzd9.2PRNttJRrRErMaPQd7GD-sEIg7UaWeKVKj2a-MOrZrU";
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInVzZXJOYW1lIjoiUmF0aG9kIiwiaWF0IjoxNzE1OTQyODQ4LCJleHAiOjE3MTU5NDI5MDh9.HNPfejNzzuHAK4EgwuAPYTDOS0HlwyaxOhFffFZw1OU";
         const response = await fetch("http://localhost:3000/todos/", {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -36,6 +36,7 @@ const TodoContainer: React.FC = () => {
 
     fetchData();
   }, []);
+  console.log(data)
 
 
   return (
