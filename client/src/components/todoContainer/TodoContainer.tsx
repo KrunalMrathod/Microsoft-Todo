@@ -15,8 +15,11 @@ const TodoContainer: React.FC = () => {
 
   const fetchData = async () => {
     try {
-      const accessToken = localStorage.getItem('access_token')?.trim().replace(/\"/g, '');
-      console.log(accessToken)
+      const accessToken = localStorage
+        .getItem("access_token")
+        ?.trim()
+        .replace(/\"/g, "");
+      console.log(accessToken);
       if (!accessToken) {
         throw new Error("Access token not found");
       }
@@ -25,7 +28,7 @@ const TodoContainer: React.FC = () => {
           Authorization: `Bearer ${accessToken}`,
         },
       });
-      console.log(response)
+      console.log(response);
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
@@ -51,16 +54,21 @@ const TodoContainer: React.FC = () => {
   return (
     <div className="TodoContainer">
       <AddTodo addTodoToState={addTodoToState} />
+
       {loading ? (
         <p>Loading...</p>
       ) : data.length > 0 ? (
-        <div>
+        <div className="cont">
           {data.map((item) => (
-            <div className="TodoInput" key={item.id}>
+            <div className="TodoInput " key={item.id}>
               <input type="radio" checked={item.completed} readOnly />
               <div className="DivInFlex">
                 <span>{item.description}</span>
               </div>
+             <div className="TodoActionsButtons">
+             <button> Edit</button>
+              <button> Delete</button>
+             </div>
             </div>
           ))}
         </div>

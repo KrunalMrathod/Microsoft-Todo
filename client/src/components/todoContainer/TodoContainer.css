@@ -1,5 +1,6 @@
 .TodoContainer {
   width: 90%;
+  height: 80vh;
   margin: 20px auto;
 }
 .DivInFlex{
@@ -13,4 +14,33 @@
   align-items: center;
   font-size: 18px;
   font-weight: 600;
+}
+
+.TodoContainer .cont{
+  padding: 5px;
+  height: 80%;
+  overflow-y: scroll;
+}
+.cont .TodoInput{
+  display: flex;
+  justify-content: space-between;
+}
+.cont .TodoActionsButtons {
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  gap: 10px;
+  
+}
+
+.cont .TodoActionsButtons button {
+  cursor: pointer;
+  width: 100%;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: #2564cf;
+  padding: 5px;
+  box-shadow: rgba(62, 42, 42, 0.2) 0px 8px 24px;
+  width: 100px;
 }
