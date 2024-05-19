@@ -49,7 +49,6 @@ const Body: React.FC = () => {
       </div>
 
       <div className="vr"></div>
-      <AddTodo />
       <TodoContainer/>
     </div>
   );
