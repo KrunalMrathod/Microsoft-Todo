@@ -19,7 +19,6 @@ const TodoContainer: React.FC = () => {
         .getItem("access_token")
         ?.trim()
         .replace(/\"/g, "");
-      console.log(accessToken);
       if (!accessToken) {
         throw new Error("Access token not found");
       }
@@ -28,7 +27,6 @@ const TodoContainer: React.FC = () => {
           Authorization: `Bearer ${accessToken}`,
         },
       });
-      console.log(response);
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
@@ -41,6 +39,50 @@ const TodoContainer: React.FC = () => {
     }
   };
 
+  const deleteTodo = async (id: number) => {
+    try {
+      const accessToken = localStorage
+        .getItem("access_token")
+        ?.trim()
+        .replace(/\"/g, "");
+      const deleteResponse = await fetch(`http://localhost:3000/todos/${id}`, {
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+      fetchData()
+    } catch (error) {
+      console.error("Error deleting todo:", error);
+    }
+  };
+
+  const updateTodo = async (id: number, updatedTodo: Partial<Data>) => {
+    try {
+      const accessToken = localStorage
+        .getItem("access_token")
+        ?.trim()
+        .replace(/\"/g, "");
+      if (!accessToken) {
+        throw new Error("Access token not found");
+      }
+      const updateResponse = await fetch(`http://localhost:3000/todos/${id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${accessToken}`,
+        },
+        body: JSON.stringify(updatedTodo),
+      });
+      if (!updateResponse.ok) {
+        throw new Error("Failed to update todo");
+      }
+      fetchData();
+    } catch (error) {
+      console.error("Error updating todo:", error);
+    }
+  };
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -49,7 +91,6 @@ const TodoContainer: React.FC = () => {
     setData((prevData) => [...prevData, newTodo]);
   };
 
-  console.log(data);
 
   return (
     <div className="TodoContainer">
@@ -61,13 +102,18 @@ const TodoContainer: React.FC = () => {
         <div className="cont">
           {data.map((item) => (
             <div className="TodoInput " key={item.id}>
-              <input type="radio" checked={item.completed} readOnly />
+              <input type="checkbox" checked={item.completed} onChange={() => updateTodo(item.id, { completed: !item.completed })} />
               <div className="DivInFlex">
-                <span>{item.description}</span>
+                <span className={item.completed ? "completed" : ""}>{item.description}</span>
               </div>
              <div className="TodoActionsButtons">
-             <button> Edit</button>
-              <button> Delete</button>
+             <button onClick={() => {
+               const newDescription = prompt("Please enter new description:");
+               if (newDescription) {
+                 updateTodo(item.id, { description: newDescription });
+               }
+             }}> Edit</button>
+              <button onClick={() => deleteTodo(item.id)}> Delete</button>
              </div>
             </div>
           ))}

@@ -3,8 +3,8 @@
   height: 80vh;
   margin: 20px auto;
 }
-.DivInFlex{
-  width: 20%;
+.DivInFlex {
+  width: 30%;
 }
 .DivInFlex span {
   width: 100%;
@@ -14,23 +14,30 @@
   align-items: center;
   font-size: 18px;
   font-weight: 600;
+  overflow: scroll;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-transform: capitalize;
+
+}
+.DivInFlex span::-webkit-scrollbar {
+  display: none;
 }
 
-.TodoContainer .cont{
+.TodoContainer .cont {
   padding: 5px;
   height: 80%;
   overflow-y: scroll;
 }
-.cont .TodoInput{
+.cont .TodoInput {
   display: flex;
   justify-content: space-between;
 }
 .cont .TodoActionsButtons {
   display: flex;
-  justify-content:center;
+  justify-content: center;
   align-items: center;
   gap: 10px;
-  
 }
 
 .cont .TodoActionsButtons button {
@@ -43,4 +50,51 @@
   padding: 5px;
   box-shadow: rgba(62, 42, 42, 0.2) 0px 8px 24px;
   width: 100px;
+}
+.TodoInput input:nth-child(1):checked ~ .DivInFlex {
+  text-decoration: line-through;
+}
+
+@media screen and (max-device-width: 640px) {
+  .TodoContainer {
+    width: 100%;
+    height: auto;
+    margin: 10px auto;
+  }
+  .DivInFlex {
+    width: 40%;
+  }
+  .DivInFlex span {
+    font-size: 13px;
+  }
+  .TodoActionsButtons {
+    width: 30%;
+  }
+  .cont .TodoActionsButtons button {
+    width: 90px;
+    padding: 3px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-device-width: 641px) and (max-device-width: 1024px) {
+  .TodoContainer {
+    width: 80%;
+    height: auto;
+    margin: 20px auto;
+  }
+  .DivInFlex {
+    width: 50%;
+  }
+  .DivInFlex span {
+    font-size: 15px;
+  }
+  .TodoActionsButtons {
+    width: 20%;
+  }
+  .cont .TodoActionsButtons button {
+    width: 95px;
+    padding: 6px;
+    font-size: 16px;
+  }
 }

@@ -43,7 +43,6 @@ const AddTodo: React.FC<AddTodoProps> = ({ addTodoToState }) => {
       }
 
       const result: Data = await response.json();
-      console.log("Todo added:", result);
       addTodoToState(result); 
       setTodo(""); 
       setCompleted(false);
