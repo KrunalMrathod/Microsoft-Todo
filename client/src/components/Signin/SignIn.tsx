@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useUser } from "../../context";
 import "./SignIn.css";
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
@@ -15,6 +16,7 @@ interface SignInProps {
 const SignIn: React.FC<SignInProps> = ({ setIsLoggedIn, isLoggedIn }) => {
   const [password, setPassword] = useState("");
   const [userName, setUserName] = useState("");
+  const {setUser}=useUser()
   const navigate = useNavigate();
   const handleRegister = async () => {
     try {
@@ -24,6 +26,7 @@ const SignIn: React.FC<SignInProps> = ({ setIsLoggedIn, isLoggedIn }) => {
       });
       alert("Login successful!");
       localStorage.setItem("access_token", JSON.stringify(response.data.access_token));
+      setUser(response.data.user)
       setIsLoggedIn(true);
       navigate("/")
     } catch (error) {
@@ -37,6 +40,7 @@ useEffect(()=>{
     navigate("/")
   }
 },[isLoggedIn])
+
 
   return (
    

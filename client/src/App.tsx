@@ -5,6 +5,7 @@ import Navbar from "./components/navbar/Navbar";
 import SignIn from "./components/Signin/SignIn";
 import "./styles.css";
 import SignUp from "./components/register/SignUp";
+import { UserProvider } from "./context";
 
 export const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
@@ -15,23 +16,48 @@ export const App = () => {
       setIsLoggedIn(!!access_token);
     };
 
-    window.addEventListener('storage', handleStorageChange);
+    window.addEventListener("storage", handleStorageChange);
 
     handleStorageChange();
 
     return () => {
-      window.removeEventListener('storage', handleStorageChange);
+      window.removeEventListener("storage", handleStorageChange);
     };
   }, []);
 
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={isLoggedIn ? <><Navbar/><Body/></> : <Navigate to="/signIn" replace />} />
-        <Route path="/signIn" element={<SignIn setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />} />
-        <Route path="/signUp" element={<SignUp />} />
-        <Route path="*" element={<Navigate to={isLoggedIn ? "/" : "/signIn"} replace />} />
-      </Routes>
+      <UserProvider>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              isLoggedIn ? (
+                <>
+                  <Navbar
+                    isLoggedIn={isLoggedIn}
+                    setIsLoggedIn={setIsLoggedIn}
+                  />
+                  <Body />
+                </>
+              ) : (
+                <Navigate to="/signIn" replace />
+              )
+            }
+          />
+          <Route
+            path="/signIn"
+            element={
+              <SignIn setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />
+            }
+          />
+          <Route path="/signUp" element={<SignUp />} />
+          <Route
+            path="*"
+            element={<Navigate to={isLoggedIn ? "/" : "/signIn"} replace />}
+          />
+        </Routes>
+      </UserProvider>
     </BrowserRouter>
   );
 };
