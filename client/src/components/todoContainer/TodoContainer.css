@@ -53,6 +53,25 @@
 }
 .TodoInput input:nth-child(1):checked ~ .DivInFlex {
   text-decoration: line-through;
+  
+}
+.TodoInput input:nth-child(1) {
+  width: 20px;
+  margin: 0 10px;
+}
+.DivInFlex input:nth-child(1) {
+  width: 100% !important;
+  height: 100% !important ;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 600;
+  overflow: scroll;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-transform: capitalize;
+  border: 1px solid gray !important;
 }
 
 @media screen and (max-device-width: 640px) {

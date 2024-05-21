@@ -12,7 +12,7 @@
   display: flex;
   margin: 10px 0px;
 }
-.TodoInput input:nth-child(1) {
+.TodoInput .RadioInputBox {
   width: 2%;
   margin: 8px 10px;
 }

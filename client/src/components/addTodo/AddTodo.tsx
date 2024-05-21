@@ -54,7 +54,7 @@ const AddTodo: React.FC<AddTodoProps> = ({ addTodoToState }) => {
   return (
     <div className="AddTodo">
       <div className="TodoInput">
-        <input type="radio" checked={completed} onChange={() => setCompleted(!completed)} />
+        <input type="radio" className="RadioInputBox" checked={completed} onChange={() => setCompleted(!completed)} />
         <input type="text" className="InputValue" placeholder="Add a task..." value={todo} onChange={(e) => setTodo(e.target.value)} />
       </div>
       <div className="TodoSubmit">

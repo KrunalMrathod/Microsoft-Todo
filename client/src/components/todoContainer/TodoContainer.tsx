@@ -12,6 +12,10 @@ interface Data {
 const TodoContainer: React.FC = () => {
   const [data, setData] = useState<Data[]>([]);
   const [loading, setLoading] = useState(true);
+  const [editTodoId, setEditTodoId] = useState<number | null>(null);
+  const [editDescription, setEditDescription] = useState<string>("");
+
+  console.log(editDescription)
 
   const fetchData = async () => {
     try {
@@ -45,13 +49,13 @@ const TodoContainer: React.FC = () => {
         .getItem("access_token")
         ?.trim()
         .replace(/\"/g, "");
-      const deleteResponse = await fetch(`http://localhost:3000/todos/${id}`, {
+      await fetch(`http://localhost:3000/todos/${id}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
       });
-      fetchData()
+      fetchData();
     } catch (error) {
       console.error("Error deleting todo:", error);
     }
@@ -78,6 +82,7 @@ const TodoContainer: React.FC = () => {
         throw new Error("Failed to update todo");
       }
       fetchData();
+      setEditTodoId(null); // Clear edit state after updating
     } catch (error) {
       console.error("Error updating todo:", error);
     }
@@ -91,7 +96,6 @@ const TodoContainer: React.FC = () => {
     setData((prevData) => [...prevData, newTodo]);
   };
 
-
   return (
     <div className="TodoContainer">
       <AddTodo addTodoToState={addTodoToState} />
@@ -101,20 +105,58 @@ const TodoContainer: React.FC = () => {
       ) : data.length > 0 ? (
         <div className="cont">
           {data.map((item) => (
-            <div className="TodoInput " key={item.id}>
-              <input type="checkbox" checked={item.completed} onChange={() => updateTodo(item.id, { completed: !item.completed })} />
+            <div className="TodoInput" key={item.id}>
+              <input
+                type="checkbox"
+                checked={item.completed}
+                onChange={() => updateTodo(item.id, { completed: !item.completed })}
+              />
               <div className="DivInFlex">
-                <span className={item.completed ? "completed" : ""}>{item.description}</span>
+                {editTodoId === item.id ? (
+                  <input
+                    type="text"
+                    value={editDescription}
+                    onChange={(e) => setEditDescription(e.target.value)}
+                    onBlur={() => {
+                      if (editDescription.trim()) {
+                        updateTodo(item.id, { description: editDescription.trim() });
+                      }
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        if (editDescription.trim()) {
+                          updateTodo(item.id, { description: editDescription.trim() });
+                        }
+                      }
+                    }}
+                  />
+                ) : (
+                  <span className={item.completed ? "completed" : ""}>{item.description}</span>
+                )}
               </div>
-             <div className="TodoActionsButtons">
-             <button onClick={() => {
-               const newDescription = prompt("Please enter new description:");
-               if (newDescription) {
-                 updateTodo(item.id, { description: newDescription });
-               }
-             }}> Edit</button>
-              <button onClick={() => deleteTodo(item.id)}> Delete</button>
-             </div>
+              <div className="TodoActionsButtons">
+                {editTodoId === item.id ? (
+                  <button
+                    onClick={() => {
+                      if (editDescription.trim()) {
+                        updateTodo(item.id, { description: editDescription.trim() });
+                      }
+                    }}
+                  >
+                    Save
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => {
+                      setEditTodoId(item.id);
+                      setEditDescription(item.description);
+                    }}
+                  >
+                    Edit
+                  </button>
+                )}
+                <button onClick={() => deleteTodo(item.id)}>Delete</button>
+              </div>
             </div>
           ))}
         </div>
