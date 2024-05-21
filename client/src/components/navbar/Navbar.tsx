@@ -27,15 +27,14 @@ interface NavbarProps {
   setIsLoggedIn: (isLoggedIn: boolean) => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ isLoggedIn,setIsLoggedIn }) => {
+const Navbar: React.FC<NavbarProps> = ({ isLoggedIn, setIsLoggedIn }) => {
   const [showGridMenu, setShowGridMenu] = useState(false);
   const [isGridActive, setGridActive] = useState(false);
   const [GridImg, setGridImg] = useState<Item[]>([]);
   const [gridOptions, setGridOptions] = useState<Item[]>([]);
   const [userProfile, setUserProfile] = useState(false);
-  const {user}=useUser()
+  const { user } = useUser();
   const gridRef = useRef<HTMLDivElement>(null);
-
 
   useEffect(() => {
     setGridImg(GridMenuImgs);
@@ -45,7 +44,6 @@ const Navbar: React.FC<NavbarProps> = ({ isLoggedIn,setIsLoggedIn }) => {
       if (gridRef.current && !gridRef.current.contains(event.target as Node)) {
         setShowGridMenu(false);
         setGridActive(false);
-        setUserProfile(false);
       }
     };
 
@@ -128,14 +126,19 @@ const Navbar: React.FC<NavbarProps> = ({ isLoggedIn,setIsLoggedIn }) => {
           )}
           {userProfile && isLoggedIn && (
             <div className="UserProfile">
-              {/* <span onClick={() => console.log("profile")}>  </span>
-              <span onClick={() => { localStorage.removeItem("access_token"); setIsLoggedIn(false) }}>Logout</span> */}
               <div className="UserData">
-                <span> {user.name} </span>
-                <span> {user.email} </span>
+                <span> UserName: {user.name} </span>
+                <span> UserEmail: {user.email} </span>
               </div>
               <div className="UserLogOut">
-                <button>Logout</button>
+                <button
+                  onClick={() => {
+                    localStorage.removeItem("access_token");
+                    setIsLoggedIn(false);
+                  }}
+                >
+                  Logout
+                </button>
               </div>
             </div>
           )}

@@ -94,6 +94,9 @@
     padding: 3px;
     font-size: 14px;
   }
+  .DivInFlex input:nth-child(1){
+    margin: 0px !important;
+  }
 }
 
 @media screen and (min-device-width: 641px) and (max-device-width: 1024px) {

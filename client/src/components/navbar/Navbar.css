@@ -209,9 +209,8 @@
   margin: 10px 0px;
   font-weight: 600;
 }
-.UserProfile{
-  /* border: 1px solid rgb(240, 226, 226); */
-  border: 1px solid red;
+.UserProfile {
+  border: 1px solid rgb(206, 199, 199);
   position: absolute;
   right: 0px;
   top: 48px;
@@ -221,23 +220,34 @@
   align-items: center;
   justify-content: center;
   background-color: hwb(0 100% 0%);
+  padding: 5px 5px;
+  z-index: 5;
 }
-.UserProfile span{
-  margin: 5px 0px;
+.UserProfile .UserData {
   width: 100%;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.UserData span {
+  margin: 2px 0px;
+}
+.UserLogOut{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 0px;
+}
+.UserLogOut button{
+  width: 50%;
+  padding: 5px;
+  outline: none;
+  border: none;
   cursor: pointer;
-  font-size: 15px;
 }
-.UserProfile .UserData{
-  border: 5px solidr black !important;
-}
-.UserData span{
-color: red;
-}
-.LogOutButton{
-  border: 1px solid red;
-}
+
+
+
 /* Medai quary for mobile devices */
 
 @media screen and (max-device-width: 640px) {
@@ -312,6 +322,18 @@ color: red;
   .Grido span {
     font-size: 6px;
   }
+  .UserProfile {
+    border: 1px solid rgb(206, 199, 199);
+    width: 50%;
+    padding: 5px 5px;
+    z-index: 5;
+  }
+  .UserData span {
+    margin: 2px 0px;
+    font-size: 12px;
+  }
+  
+ 
 }
 
 /* Media for Tablet */
@@ -341,7 +363,7 @@ color: red;
   .MiddleNav svg {
     width: 20%;
   }
-  .RightNav{
+  .RightNav {
     width: 30%;
     justify-content: end;
   }
@@ -375,14 +397,21 @@ color: red;
     color: black;
     font-size: 13px;
   }
-
+  .UserProfile {
+    border: 1px solid rgb(206, 199, 199);
+    width: 30%;
+    padding: 5px 5px;
+    z-index: 5;
+  }
+  .UserData span {
+    margin: 2px 0px;
+    font-size: 15px;
+  }
 }
-
 
 /* Media quary for large device */
 
-@media screen and (min-width: 1024px)and (max-device-width: 1600px) {
-
+@media screen and (min-width: 1024px) and (max-device-width: 1600px) {
   .GridMenu {
     top: calc(6.5% + 9px);
     width: 400px !important;
@@ -404,5 +433,4 @@ color: red;
     color: black;
     font-size: 13px;
   }
-
 }
