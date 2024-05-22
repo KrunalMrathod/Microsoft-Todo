@@ -47,7 +47,6 @@
 }
 .SignInHead {
   margin: 5px 0px;
-  /* border: 1px solid red; */
 }
 .SignInHead h1 {
   font-size: 30px;
@@ -55,7 +54,6 @@
 }
 
 .SignInForm {
-  /* border: 1px solid red; */
   margin: 30px 0px;
 }
 .SignUpInput {
@@ -117,9 +115,8 @@
   .SignIn {
     display: flex;
     flex-direction: column-reverse;
-    width: 100%;
-    margin: 5% auto;
-    padding: 0px;
+    width: 80%;
+    margin: 10% auto;
   }
   .SignInRight {
     width: 100%;
