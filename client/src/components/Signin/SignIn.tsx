@@ -4,10 +4,9 @@ import "./SignIn.css";
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaGooglePlusG } from "react-icons/fa";
-import { FaUser } from "react-icons/fa";
-import { FaLock } from "react-icons/fa";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+
+import { useNavigate } from "react-router-dom";
 interface SignInProps {
   setIsLoggedIn: (value: boolean) => void;
   isLoggedIn: boolean;
@@ -16,7 +15,8 @@ interface SignInProps {
 const SignIn: React.FC<SignInProps> = ({ setIsLoggedIn, isLoggedIn }) => {
   const [password, setPassword] = useState("");
   const [userName, setUserName] = useState("");
-  const {setUser}=useUser()
+  const [error, setError] = useState("");
+  const { setUser } = useUser();
   const navigate = useNavigate();
   const handleRegister = async () => {
     try {
@@ -24,67 +24,82 @@ const SignIn: React.FC<SignInProps> = ({ setIsLoggedIn, isLoggedIn }) => {
         password,
         userName,
       });
-      alert("Login successful!");
-      localStorage.setItem("access_token", JSON.stringify(response.data.access_token));
-      setUser(response.data.user)
-      setIsLoggedIn(true);
-      navigate("/")
+
+      localStorage.setItem(
+        "access_token",
+        JSON.stringify(response.data.access_token)
+      );
+
+      setTimeout(() => {
+        navigate("/");
+        setUser(response.data.user);
+        setIsLoggedIn(true);
+      }, 5000);
     } catch (error) {
-      const errorMessage = (error as any).response?.data?.message || "Unknown error occurred";
-      alert(`Login failed: ${errorMessage}`);
+      const errorMessage =
+        (error as any).response?.data?.message || "Unknown error occurred";
+      setError(` ${errorMessage}`);
+      setTimeout(() => {
+        setError("");
+        console.log(error);
+      }, 10000);
     }
   };
 
-useEffect(()=>{
-  if(isLoggedIn){
-    navigate("/")
-  }
-},[isLoggedIn])
-
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate("/");
+    }
+  }, [isLoggedIn]);
 
   return (
-   
-    <div className="SignIn">
-      <div className="SignInLeft">
-        <div className="LeftImg">
-          <img
-            src="https://colorlib.com/etc/regform/colorlib-regform-7/images/signin-image.jpg"
-            alt=""
-          />
-        </div>
-        <div className="SignInRedirect">
-          <Link to="/signUp">
-            <span> Create an account</span>
-          </Link>
-        </div>
-      </div>
-      <div className="SignInRight">
-        <div className="SignInHead">
-          <h1>SignIn</h1>
-        </div>
-        <div className="SignInForm">
-          <div className="SignUpInput">
-            <FaUser/>
-            <input type="text" placeholder="UserName"   value={userName}
-              onChange={(e) => setUserName(e.target.value)} />
+    <div className="signin_wrapper">
+      <div className="signin_background_img">
+        <div className="formWrap">
+          <h1>Get Started</h1>
+          <p>
+            Dont Have Account? <a href="/signUp">Create a account</a>
+          </p>
+
+          <div className="fromfill_Wrap">
+            <div className="forminputs">
+              <label htmlFor="1"> UserName </label>
+              <input
+                type="text"
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
+                required={true}
+              />
+            </div>
+            <div className="forminputs">
+              <label htmlFor="1"> Password </label>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required={true}
+              />
+            </div>
+            <button onClick={handleRegister}>Login</button>
+            <div className="signupwith_wrap">
+              <div className="vr"></div>
+              <span>or sign up with</span>
+              <div className="vr"></div>
+            </div>
+            <div className="signinicons">
+              <a href="https://www.facebook.com/?_rdr">
+                <FaFacebookSquare />
+              </a>
+              <a href="https://accounts.google.com/InteractiveLogin/signinchooser?elo=1&ifkv=AcMMx-dBjI91Jo1Y9Pg-1Tgie_WiirOx3YJKeY-mXi2BzXxGRtWFzq-b-twX6G5yUx03MNCGBDHk-g&ddm=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin">
+                <FaGooglePlusG />
+              </a>
+              <a href="https://www.instagram.com/accounts/login/?hl=en">
+                <FaInstagram />
+              </a>
+            </div>
           </div>
-          <div className="SignUpInput">
-            <FaLock/>
-            <input type="password" placeholder="Password"    value={password}
-              onChange={(e) => setPassword(e.target.value)} />
-          </div>
         </div>
-        <div className="LoginButton">
-          <button onClick={handleRegister}>Log in</button>
-        </div>
-        <div className="LoginIcons">
-          <span>or login with</span>
-          <div className="Icons">
-            <FaFacebookSquare />
-            <FaInstagram />
-            <FaGooglePlusG />
-          </div>
-        </div>
+        {error ? <div className="errorBox" > {error} </div> : null}
       </div>
     </div>
   );

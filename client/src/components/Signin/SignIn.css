@@ -1,4 +1,4 @@
-.SignIn {
+/* .SignIn {
   display: flex;
   width: 50%;
   margin: 5% auto;
@@ -107,11 +107,11 @@
 .Icons svg {
   font-size: 25px;
   cursor: pointer;
-}
+} */
 
 /* Medai quary for mobile devices */
 
-@media screen and (max-device-width: 640px) {
+/* @media screen and (max-device-width: 640px) {
   .SignIn {
     display: flex;
     flex-direction: column-reverse;
@@ -178,11 +178,11 @@
     margin: 5px;
     text-align: center;
   }
-}
+} */
 
 /* Media for Tablet */
 
-@media screen and (min-device-width: 641px) and (max-device-width: 1024px) {
+/* @media screen and (min-device-width: 641px) and (max-device-width: 1024px) {
   .SignIn {
     display: flex;
     flex-direction: column-reverse;
@@ -249,5 +249,270 @@
     font-size: 15px;
     margin: 5px;
     text-align: center;
+  }
+} */
+
+
+
+.signin_wrapper {
+  background-color: #4CAB72;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.signin_background_img {
+  background-image: url("../../img/credentianBackGround.png");
+  width: 60%;
+  height: 85%;
+  margin: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  background-size: cover;
+}
+
+.formWrap {
+  width: 50%;
+  height: 70%;
+  margin: 6% 6%;
+  backdrop-filter: blur(8px);
+  border-radius: 10px;
+  border: 1px solid snow;
+
+}
+
+.formWrap p>a {
+  text-decoration: none;
+  color: #4CAB72;
+  font-weight: 900;
+  font-size: 18px;
+}
+
+.formWrap h1 {
+  color: whitesmoke;
+  text-align: center;
+  font-size: 55px;
+  margin: 10px auto;
+  font-weight: 800;
+}
+
+.formWrap p {
+  text-align: center;
+  margin: 5px auto;
+  color: whitesmoke;
+}
+
+.fromfill_Wrap {
+  width: 80%;
+  margin: 5% auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.forminputs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.forminputs input {
+  outline: none;
+  color: whitesmoke;
+  font-size: 18px;
+}
+
+.forminputs label {
+  color: whitesmoke;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.forminputs input {
+  background: none;
+  border: none;
+  border-bottom: 2px solid whitesmoke;
+}
+
+.fromfill_Wrap button {
+  width: 50%;
+  margin: auto;
+  padding: 10px;
+  border-radius: 8px;
+  background: #4CAB72;
+  color: whitesmoke;
+  font-size: 20px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.signupwith_wrap {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  color: whitesmoke;
+  font-size: 18px;
+}
+
+.vr {
+  height: 4px;
+  background-color: whitesmoke;
+  width: 30%;
+  margin: auto;
+}
+
+.signinicons {
+  width: 70%;
+  margin: auto;
+  color: whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.signinicons svg {
+  cursor: pointer;
+  font-size: 30px;
+}
+
+.signinicons a {
+  color: whitesmoke;
+}
+
+.userMsg {
+  color: red;
+  font-weight: 800;
+  width: 70%;
+  margin: auto;
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+.userMsg2 {
+  color: whitesmoke;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.errorBox {
+  text-align: center;
+  color: red;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+/* Medai quary for mobile devices */
+
+@media screen and (max-device-width: 640px) {
+  .signin_background_img {
+    width: 90%;
+    height: 60%;
+  }
+
+  .formWrap {
+    width: 90%;
+    height: 70%;
+    margin: 15% auto;
+    backdrop-filter: blur(10px);
+  }
+
+  .formWrap p>a {
+    font-size: 10px;
+  }
+
+  .formWrap h1 {
+    font-size: 25px;
+  }
+
+  .formWrap p {
+    font-size: 13px;
+  }
+
+  .forminputs input {
+    font-size: 10px;
+  }
+
+  .forminputs label {
+    font-size: 15px;
+  }
+
+  .fromfill_Wrap button {
+    width: 80%;
+    padding: 5px;
+    font-size: 15px;
+  }
+
+  .signupwith_wrap {
+    font-size: 10px;
+  }
+
+  .vr {
+    height: 2px;
+  }
+
+  .signinicons svg {
+    cursor: pointer;
+    font-size: 20px;
+  }
+
+  .errorBox {
+    font-size: 8px;
+  }
+}
+
+/* Media for Tablet */
+
+@media screen and (min-device-width: 641px) and (max-device-width: 1024px) {
+  .signin_background_img {
+    width: 80%;
+    height: 60%;
+  }
+
+  .formWrap {
+    width: 70%;
+    height: 80%;
+    margin: 5% auto;
+  }
+
+  .formWrap p>a {
+    font-size: 15px;
+  }
+
+  .formWrap h1 {
+    font-size: 25px;
+  }
+
+  .formWrap p {
+    font-size: 15px;
+  }
+
+  .forminputs input {
+    font-size: 15px;
+  }
+
+  .forminputs label {
+    font-size: 15px;
+  }
+
+  .fromfill_Wrap button {
+    width: 60%;
+    padding: 5px;
+    font-size: 15px;
+  }
+
+  .signupwith_wrap {
+    font-size: 15px;
+  }
+
+  .vr {
+    height: 2px;
+  }
+
+  .signinicons svg {
+    cursor: pointer;
+    font-size: 20px;
   }
 }
